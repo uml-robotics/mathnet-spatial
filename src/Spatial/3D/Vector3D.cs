@@ -11,6 +11,7 @@ using MathNet.Spatial.Units;
 
 namespace MathNet.Spatial
 {
+    [System.Diagnostics.DebuggerStepThrough]
     [Serializable]
     public struct Vector3D : IXmlSerializable, IEquatable<Vector3D>, IEquatable<UnitVector3D>, IFormattable
     {

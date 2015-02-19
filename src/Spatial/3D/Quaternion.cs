@@ -17,6 +17,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Initializes a new instance of the Quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion(double real, double imagX, double imagY, double imagZ)
         {
             _x = imagX;
@@ -31,6 +32,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Initializes a new instance of the Quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         internal Quaternion(double real, double imagX, double imagY, double imagZ, double abs, double norm, double arg)
         {
             _x = imagX;
@@ -42,11 +44,13 @@ namespace MathNet.Spatial
             _arg = arg;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         static double ToNorm(double real, double imagX, double imagY, double imagZ)
         {
             return (imagX*imagX) + (imagY*imagY) + (imagZ*imagZ) + (real*real);
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         static Quaternion ToUnitQuaternion(double real, double imagX, double imagY, double imagZ)
         {
             double abs = Math.Sqrt(ToNorm(real, imagX, imagY, imagZ));
@@ -58,6 +62,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double Real
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _w; }
         }
 
@@ -66,6 +71,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double ImagX
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _x; }
         }
 
@@ -74,6 +80,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double ImagY
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _y; }
         }
 
@@ -82,6 +89,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double ImagZ
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _z; }
         }
 
@@ -93,6 +101,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double Abs
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _abs; }
         }
 
@@ -101,6 +110,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double Norm
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _norm; }
         }
 
@@ -111,6 +121,7 @@ namespace MathNet.Spatial
         /// </summary>
         public double Arg
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _arg; }
         }
 
@@ -123,6 +134,7 @@ namespace MathNet.Spatial
         /// </remarks>
         public bool IsUnitQuaternion
         {
+            [System.Diagnostics.DebuggerStepThrough]
             get { return _abs.AlmostEqual(1); }
         }
 
@@ -130,6 +142,7 @@ namespace MathNet.Spatial
         /// Returns a new Quaternion q with the Scalar part only.
         /// If you need a Double, use the Real-Field instead.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Scalar()
         {
             return new Quaternion(_w, 0, 0, 0);
@@ -138,6 +151,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Returns a new Quaternion q with the Vector part only.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Vector()
         {
             return new Quaternion(0, _x, _y, _z);
@@ -147,6 +161,7 @@ namespace MathNet.Spatial
         /// Returns a new normalized Quaternion u with the Vector part only, such that ||u|| = 1.
         /// Q may then be represented as q = r*(cos(phi) + u * sin(phi)) = r*exp(phi*u) where r is the absolute and phi the argument of q.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion UnitVector()
         {
             return ToUnitQuaternion(0, _x, _y, _z);
@@ -155,6 +170,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Returns a new normalized Quaternion q with the direction of this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Sign()
         {
             return ToUnitQuaternion(_w, _x, _y, _z);
@@ -182,6 +198,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// (nop)
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator +(Quaternion q)
         {
             return q;
@@ -190,6 +207,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Negate a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator -(Quaternion q)
         {
             return q.Negate();
@@ -198,6 +216,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Add a quaternion to a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator +(Quaternion q1, Quaternion q2)
         {
             return q1.Add(q2);
@@ -206,6 +225,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Add a floating point number to a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator +(Quaternion q1, double d)
         {
             return q1.Add(d);
@@ -214,6 +234,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Subtract a quaternion from a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator -(Quaternion q1, Quaternion q2)
         {
             return q1.Subtract(q2);
@@ -222,6 +243,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Subtract a floating point number from a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator -(Quaternion q1, double d)
         {
             return q1.Subtract(d);
@@ -230,6 +252,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Multiply a quaternion with a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator *(Quaternion q1, Quaternion q2)
         {
             return q1.Multiply(q2);
@@ -238,6 +261,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Multiply a floating point number with a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator *(Quaternion q1, double d)
         {
             return q1.Multiply(d);
@@ -246,6 +270,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Divide a quaternion by a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator /(Quaternion q1, Quaternion q2)
         {
             return q1.Divide(q2);
@@ -254,6 +279,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Divide a quaternion by a floating point number.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator /(Quaternion q1, double d)
         {
             return q1.Divide(d);
@@ -262,6 +288,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Raise a quaternion to a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator ^(Quaternion q1, Quaternion q2)
         {
             return q1.Pow(q2);
@@ -270,6 +297,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Raise a quaternion to a floating point number.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static Quaternion operator ^(Quaternion q1, double d)
         {
             return q1.Pow(d);
@@ -278,6 +306,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Convert a floating point number to a quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static implicit operator Quaternion(double d)
         {
             return new Quaternion(d, 0, 0, 0);
@@ -286,6 +315,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Add a quaternion to this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Add(Quaternion q)
         {
             return new Quaternion(_w + q._w, _x + q._x, _y + q._y, _z + q._z);
@@ -294,6 +324,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Add a floating point number to this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Add(double r)
         {
             return new Quaternion(_w + r, _x, _y, _z);
@@ -302,6 +333,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Subtract a quaternion from this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Subtract(Quaternion q)
         {
             return new Quaternion(_w - q._w, _x - q._x, _y - q._y, _z - q._z);
@@ -310,6 +342,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Subtract a floating point number from this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Subtract(double r)
         {
             return new Quaternion(_w - r, _x, _y, _z);
@@ -318,6 +351,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Negate this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Negate()
         {
             return new Quaternion(-_w, -_x, -_y, -_z, _abs, _norm, Math.PI - _arg);
@@ -326,6 +360,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Multiply a quaternion with this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Multiply(Quaternion q)
         {
             double ci = (+_x*q._w) + (_y*q._z) - (_z*q._y) + (_w*q._x);
@@ -338,6 +373,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Multiply a floating point number to this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Multiply(double d)
         {
             return new Quaternion(d*_w, d*_x, d*_y, d*_z);
@@ -349,6 +385,7 @@ namespace MathNet.Spatial
         /// q*q<sup>-1</sup> is not the same then q<sup>-1</sup>*q,
         /// because this will lead to a rotation in the other direction.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Divide(Quaternion q)
         {
             return Multiply(q.Inverse());
@@ -361,6 +398,7 @@ namespace MathNet.Spatial
         /// Its also possible to cast a double to a Quaternion and make the division
         /// afterward, but that would be more expensive.
         /// </remarks>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Divide(double d)
         {
             return new Quaternion(_w/d, _x/d, _y/d, _z/d);
@@ -369,6 +407,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Inverts this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Inverse()
         {
             if (_abs.AlmostEqual(1))
@@ -382,6 +421,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Returns the distance |a-b| of two quaternions, forming a metric space.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public static double Distance(Quaternion a, Quaternion b)
         {
             return a.Subtract(b).Abs;
@@ -390,6 +430,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Conjugate this quaternion.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Conjugate()
         {
             return new Quaternion(_w, -_x, -_y, -_z, _abs, _norm, _arg);
@@ -398,6 +439,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Logarithm to a given base.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Log(double lbase)
         {
             return Ln().Divide(Math.Log(lbase));
@@ -406,6 +448,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Natural Logarithm to base E.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Ln()
         {
             return UnitVector().Multiply(_arg).Add(Math.Log(_abs));
@@ -414,6 +457,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Common Logarithm to base 10.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Lg()
         {
             return Ln().Divide(Math.Log(10));
@@ -423,6 +467,7 @@ namespace MathNet.Spatial
         /// Exponential Function.
         /// </summary>
         /// <returns></returns>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Exp()
         {
             double vabs = Math.Sqrt(ToNorm(0, _x, _y, _z));
@@ -432,6 +477,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Raise the quaternion to a given power.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Pow(double power)
         {
             double arg = power*_arg;
@@ -441,6 +487,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Raise the quaternion to a given power.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Pow(Quaternion power)
         {
             return power.Multiply(Ln()).Exp();
@@ -449,6 +496,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Square of the Quaternion q: q^2.
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Sqr()
         {
             double arg = _arg*2;
@@ -458,6 +506,7 @@ namespace MathNet.Spatial
         /// <summary>
         /// Square root of the Quaternion: q^(1/2).
         /// </summary>
+        [System.Diagnostics.DebuggerStepThrough]
         public Quaternion Sqrt()
         {
             double arg = _arg*0.5;
